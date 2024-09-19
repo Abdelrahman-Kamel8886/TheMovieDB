@@ -13,6 +13,7 @@ import com.abdok.themoviedb.R
 import com.abdok.themoviedb.Ui.Home.HomeFragment
 import com.abdok.themoviedb.Ui.Movie.MovieFragment
 import com.abdok.themoviedb.Ui.MyHome.MyHomeFragment
+import com.abdok.themoviedb.Ui.MyHome.MyHomeFragment.Companion
 import com.abdok.themoviedb.Utils.SharedModel
 import com.abdok.themoviedb.databinding.FragmentWatchListBinding
 import np.com.susanthapa.curved_bottom_navigation.CurvedBottomNavigationView
@@ -83,6 +84,7 @@ class WatchListFragment : Fragment() , BackListener {
         }
     }
     private fun navigateToMovieDetail(movie : MovieDetailsModel) {
+        listener = null
         SharedModel.selectedMovieId = movie.id
         SharedModel.selectedLocalMovie = movie
         requireActivity().supportFragmentManager.beginTransaction()

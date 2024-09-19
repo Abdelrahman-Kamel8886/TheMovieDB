@@ -143,12 +143,14 @@ class MyHomeFragment : Fragment() , BackListener {
     }
 
     private fun navigateToCategory(){
+        listener = null
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.frame, CategoryFragment(),"CategoryFragment")
             .addToBackStack("CategoryFragment").commit()
 
     }
     private fun navigateToMovieDetail(movieId : Int) {
+        listener = null
         SharedModel.selectedMovieId = movieId
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.frame, MovieFragment(), "MovieDetailFragment")

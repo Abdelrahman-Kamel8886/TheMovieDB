@@ -14,6 +14,8 @@ import com.abdok.themoviedb.Interfaces.BackListener
 import com.abdok.themoviedb.R
 import com.abdok.themoviedb.Ui.Home.HomeFragment
 import com.abdok.themoviedb.Ui.Movie.MovieFragment
+import com.abdok.themoviedb.Ui.MyHome.MyHomeFragment
+import com.abdok.themoviedb.Ui.MyHome.MyHomeFragment.Companion
 import com.abdok.themoviedb.Utils.SharedModel
 import com.abdok.themoviedb.databinding.FragmentSearchBinding
 
@@ -70,6 +72,8 @@ class SearchFragment : Fragment() , BackListener {
         }
     }
     private fun navigateToMovieDetail(movieId : Int) {
+        listener = null
+        SharedModel.startIndex = 0
         SharedModel.selectedMovieId = movieId
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.frame, MovieFragment(), "MovieDetailFragment")

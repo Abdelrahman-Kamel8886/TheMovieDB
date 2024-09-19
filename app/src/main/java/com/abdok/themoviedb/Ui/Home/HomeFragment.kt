@@ -72,7 +72,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun replaceFragment(fragment: Fragment){
-        SharedModel.startIndex = 1
         requireActivity().supportFragmentManager.beginTransaction().replace(R.id.home_frame, fragment).commit()
     }
 
